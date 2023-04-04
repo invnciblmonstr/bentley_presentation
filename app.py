@@ -26,20 +26,21 @@ def python():
 
 def intro():
 
-    st.header("Ajinkya Deshmukh")
+    st.header("Hi 👋, I'm Ajinkya (AJ) Deshmukh")
     col1, col2 = st.columns(2)
     col1.markdown("""
     - MSBA 2021
 
     - Worked at CIS Sandbox
 
-    - From India, Currently in Texas
+    - From India, Currently in Dallas, Texas
 
-    - SDET at Roche (Python and Golang)
+    - Working as Sr. SDET at Roche Diagnostics (Python, Java and Golang)
 
     - Parenting two pups (Niko & Layla)
     """)
-    col2.image("NikoLayla.jpeg", width=300)
+    if col2.checkbox("See Niko & Layla", value=False):
+        col2.image("NikoLayla.jpeg", width=300)
 
 def java():
     st.header("☕ 2. Java - The Ageless Workhorse")
@@ -235,7 +236,7 @@ with col1:
         st.button('Previous', on_click=decrease)
 
 with col2:
-    st.slider("Slide",1,len(keys),st.session_state.count, disabled=True)
+    st.slider(keys[st.session_state.count-1],1,len(keys),st.session_state.count, disabled=True)
 
 with col3:
     if st.session_state.count<=len(keys)-1:
